@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        let targetScrollY = window.pageYOffset;
+        let currentScrollY = window.pageYOffset;
+
+        function animateScroll() {
+            const diff = targetScrollY - currentScrollY;
+            if (Math.abs(diff) < 0.5) {
+                currentScrollY = targetScrollY;
+            } else {
+                currentScrollY += diff * 0.12;
+            }
+
+            window.scrollTo(0, currentScrollY);
+            requestAnimationFrame(animateScroll);
+        }
+
+        requestAnimationFrame(animateScroll);
+
+        window.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY || event.deltaX;
+            if (Math.abs(delta) < 1) return;
+
+            targetScrollY += delta * 1.2;
+            targetScrollY = Math.max(0, targetScrollY);
+        }, { passive: false });
+    </script>
 </body>
+
 </html>
