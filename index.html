@@ -186,82 +186,55 @@
                 }
             });
         });
-        const dictUkToEn = {
-    "Сторінки": "Pages",
-    "Сторінка 1": "Page 1",
-    "Сторінка 2": "Page 2",
-    "Сторінка 3": "Page 3",
-    "Сторінка 4": "Page 4",
-    "Статья": "Article",
-    "Заголовок розділу 1": "Section 1 Heading",
-    "Текстовий плейсхолдер для першого блоку статті. Тут буде розміщено вступний матеріал, ключові визначення та опис основної проблеми.": "Text placeholder for the first block of the article. Introductory material, key definitions, and a description of the core issue will be placed here.",
-    "Додатковий абзац плейсхолдера для розкриття контексту та плавного переходу до наступних розділів публікації.": "Additional placeholder paragraph to expand the context and provide a smooth transition to the next sections of the publication.",
-    "Заголовок розділу 2": "Section 2 Heading",
-    "Текстовий плейсхолдер для другого блоку статті. Тут описуються типові ознаки, приклади з життя та розбір поширених ситуацій.": "Text placeholder for the second block of the article. Typical warning signs, real-life examples, and an analysis of common situations are described here.",
-    "Додатковий абзац плейсхолдера з деталізацією ключових тез і поясненням механізмів впливу.": "Additional placeholder paragraph detailing the key points and explaining the mechanisms of manipulation.",
-    "Заголовок розділу 3": "Section 3 Heading",
-    "Текстовий плейсхолдер для третього блоку статті. Тут подаються практичні поради, алгоритми дій та інструменти самозахисту.": "Text placeholder for the third block of the article. Practical advice, action plans, and self-defense tools are provided here.",
-    "Додатковий абзац плейсхолдера з рекомендаціями щодо збереження емоційної рівноваги та особистих кордонів.": "Additional placeholder paragraph with recommendations for maintaining emotional balance and personal boundaries.",
-    "Заголовок розділу 4": "Section 4 Heading",
-    "Текстовий плейсхолдер для четвертого блоку статті. Підсумкові висновки за темою та узагальнення головних ідей матеріалу.": "Text placeholder for the fourth block of the article. Final conclusions on the topic and a summary of the main ideas.",
-    "Додатковий абзац плейсхолдера із завершальними тезами та корисними контактами підтримки.": "Additional placeholder paragraph with closing thoughts and helpful support contacts.",
-    "Навігація": "Navigation",
-    "Блок 1": "Block 1",
-    "Блок 2": "Block 2",
-    "Блок 3": "Block 3",
-    "Блок 4": "Block 4",
-    "Про проєкт": "About the Project",
-    "Освітній портал про психологічну безпеку, розпізнавання газлайтингу та захист особистих кордонів.": "An educational portal on psychological safety, recognizing gaslighting, and protecting personal boundaries.",
-    "Лінія довіри:": "Helpline:",
-    "Контакти": "Contacts",
-    "Пн–Пт: 09:00 – 18:00": "Mon–Fri: 09:00 – 18:00",
-    "Соціальні мережі": "Social Media",
-    "Інформація": "Information",
-    "Політика конфіденційності": "Privacy Policy",
-    "Умови використання": "Terms of Use",
-    "Зворотний зв'язок": "Feedback",
-    "© 2026 Gaslight? No Thanks. Усі права захищено.": "© 2026 Gaslight? No Thanks. All rights reserved."
-};
+        const dict = [
+    ["Сторінки", "Pages"], ["Статья", "Article"], ["Навігація", "Navigation"],
+    ["Про проєкт", "About the Project"], ["Лінія довіри:", "Helpline:"],
+    ["Контакти", "Contacts"], ["Пн–Пт: 09:00 – 18:00", "Mon–Fri: 09:00 – 18:00"],
+    ["Соціальні мережі", "Social Media"], ["Інформація", "Information"],
+    ["Політика конфіденційності", "Privacy Policy"], ["Умови використання", "Terms of Use"],
+    ["Зворотний зв'язок", "Feedback"],
+    ["© 2026 Gaslight? No Thanks. Усі права захищено.", "© 2026 Gaslight? No Thanks. All rights reserved."],
+    ["Освітній портал про психологічну безпеку, розпізнавання газлайтингу та захист особистих кордонів.", "An educational portal on psychological safety, recognizing gaslighting, and protecting personal boundaries."],
+    ["Текстовий плейсхолдер для першого блоку статті. Тут буде розміщено вступний матеріал, ключові визначення та опис основної проблеми.", "Text placeholder for the first block of the article. Introductory material, key definitions, and a description of the core issue will be placed here."],
+    ["Додатковий абзац плейсхолдера для розкриття контексту та плавного переходу до наступних розділів публікації.", "Additional placeholder paragraph to expand the context and provide a smooth transition to the next sections of the publication."],
+    ["Текстовий плейсхолдер для другого блоку статті. Тут описуються типові ознаки, приклади з життя та розбір поширених ситуацій.", "Text placeholder for the second block of the article. Typical warning signs, real-life examples, and an analysis of common situations are described here."],
+    ["Додатковий абзац плейсхолдера з деталізацією ключових тез і поясненням механізмів впливу.", "Additional placeholder paragraph detailing the key points and explaining the mechanisms of manipulation."],
+    ["Текстовий плейсхолдер для третього блоку статті. Тут подаються практичні поради, алгоритми дій та інструменти самозахисту.", "Text placeholder for the third block of the article. Practical advice, action plans, and self-defense tools are provided here."],
+    ["Додатковий абзац плейсхолдера з рекомендаціями щодо збереження емоційної рівноваги та особистих кордонів.", "Additional placeholder paragraph with recommendations for maintaining emotional balance and personal boundaries."],
+    ["Текстовий плейсхолдер для четвертого блоку статті. Підсумкові висновки за темою та узагальнення головних ідей матеріалу.", "Text placeholder for the fourth block of the article. Final conclusions on the topic and a summary of the main ideas."],
+    ["Додатковий абзац плейсхолдера із завершальними тезами та корисними контактами підтримки.", "Additional placeholder paragraph with closing thoughts and helpful support contacts."]
+];
 
+const rules = [
+    [/^Сторінка (\d+)$/, "Page $1", /^Page (\d+)$/, "Сторінка $1"],
+    [/^Блок (\d+)$/, "Block $1", /^Block (\d+)$/, "Блок $1"],
+    [/^Заголовок розділу (\d+)$/, "Section $1 Heading", /^Section (\d+) Heading$/, "Заголовок розділу $1"]
+];
 
-const dictEnToUk = Object.fromEntries(
-    Object.entries(dictUkToEn).map(([uk, en]) => [en, uk])
-);
+const setLang = (lang) => {
+    const isEn = lang === 'en';
+    const map = Object.fromEntries(dict.map(([u, e]) => isEn ? [u, e] : [e, u]));
+    const walker = document.createTreeWalker(document.body, 4);
 
-const btnUA = document.getElementById('UA');
-const btnEN = document.getElementById('EN');
-
-function translatePage(targetLang) {
-    const map = targetLang === 'en' ? dictUkToEn : dictEnToUk;
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-
-    let node;
-    while ((node = walker.nextNode())) {
-        const trimmed = node.nodeValue.trim();
-        if (map[trimmed]) {
-            node.nodeValue = node.nodeValue.replace(trimmed, map[trimmed]);
-        }
+    for (let n; (n = walker.nextNode()); ) {
+        const t = n.nodeValue.trim();
+        if (map[t]) n.nodeValue = n.nodeValue.replace(t, map[t]);
+        else rules.forEach(([rU, sE, rE, sU]) => {
+            const [rx, sub] = isEn ? [rU, sE] : [rE, sU];
+            if (rx.test(t)) n.nodeValue = n.nodeValue.replace(t, t.replace(rx, sub));
+        });
     }
 
-    document.documentElement.lang = targetLang === 'en' ? 'en' : 'uk';
-    btnUA.style.color = targetLang === 'uk' ? '#ffb348' : '';
-    btnEN.style.color = targetLang === 'en' ? '#ffb348' : '';
-    localStorage.setItem('site_lang', targetLang);
-}
+    document.documentElement.lang = lang;
+    ['UA', 'EN'].forEach(id => {
+        const el = document.getElementById(id);
+        el.style.color = (id === 'EN') === isEn ? '#ffb348' : '';
+        el.onclick = () => setLang(id.toLowerCase());
+    });
+    localStorage.setItem('site_lang', lang);
+};
 
-btnUA.addEventListener('click', (e) => {
-    e.preventDefault();
-    translatePage('uk');
-});
-
-btnEN.addEventListener('click', (e) => {
-    e.preventDefault();
-    translatePage('en');
-});
-
-
-const savedLang = localStorage.getItem('site_lang') || 'uk';
-translatePage(savedLang);
+setLang(localStorage.getItem('site_lang') || 'uk');
         
     </script>
 </body>
