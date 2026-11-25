@@ -50,7 +50,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100px;
+            gap: 10px;
+            width: auto;
             height: 100px;
             margin: 20px;
         }
@@ -85,6 +86,17 @@
         .language a:hover
         {
             color: #ffb348;
+        }
+
+        #light, #dark, #light + h1
+        {
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        #light
+        {
+            margin-left: 12px;
         }
 
         header .authorisation
@@ -379,6 +391,11 @@
                 font-size: 26px;
             }
 
+            #light, #dark, #light + h1
+            {
+                font-size: 16px;
+            }
+
             .backgroundvideo 
             {
                 height: 750px;
@@ -461,6 +478,16 @@
             .logo h1, .language a, .language h1 
             {
                 font-size: 24px;
+            }
+
+            #light, #dark, #light + h1
+            {
+                font-size: 14px;
+            }
+
+            #light
+            {
+                margin-left: 8px;
             }
 
             .backgroundvideo 
@@ -550,6 +577,16 @@
                 font-size: 20px;
             }
 
+            #light, #dark, #light + h1
+            {
+                font-size: 12px;
+            }
+
+            #light
+            {
+                margin-left: 6px;
+            }
+
             .backgroundvideo 
             {
                 height: 360px;
@@ -615,6 +652,16 @@
             .logo h1, .language a, .language h1 
             {
                 font-size: 16px;
+            }
+
+            #light, #dark, #light + h1
+            {
+                font-size: 10px;
+            }
+
+            #light
+            {
+                margin-left: 4px;
             }
 
             .backgroundvideo 
