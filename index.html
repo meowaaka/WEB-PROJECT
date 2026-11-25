@@ -17,6 +17,9 @@
                 <a name="language" id="UA">UA</a>
                 <h1>/</h1>
                 <a name="language" id="EN">EN</a>
+                <a name="theme" id="light">&#127774;</a>
+                <h1>/</h1>
+                <a name="theme" id="dark">&#127761;</a>
             </div>
         </header>
 
@@ -189,6 +192,135 @@
                 }
             });
         });
+
+        const darkStyles = document.createElement('style');
+        darkStyles.textContent = `
+            body.dark-theme {
+                background-color: #0f172a;
+                color: #e2e8f0;
+            }
+            body.dark-theme header,
+            body.dark-theme footer {
+                background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
+            }
+            body.dark-theme .logo h1,
+            body.dark-theme .language a,
+            body.dark-theme .language h1,
+            body.dark-theme .article-title h2,
+            body.dark-theme .article-block,
+            body.dark-theme .article-block h3,
+            body.dark-theme .contact-box h3,
+            body.dark-theme .contact-box p,
+            body.dark-theme .contact-box a,
+            body.dark-theme .footer-bottom {
+                color: #e2e8f0;
+            }
+            body.dark-theme .language a:hover,
+            body.dark-theme .contact-box a:hover {
+                color: #ffb348;
+            }
+            body.dark-theme .backgroundvideo,
+            body.dark-theme main,
+            body.dark-theme .mainpage {
+                background-color: #0f172a;
+            }
+            body.dark-theme .site-link,
+            body.dark-theme .block-nav,
+            body.dark-theme .social-link,
+            body.dark-theme .article-title,
+            body.dark-theme .article-block,
+            body.dark-theme .contact-box {
+                background-color: #1e293b;
+                color: #e2e8f0;
+                border-color: #ffb348;
+            }
+            body.dark-theme .site-link:hover,
+            body.dark-theme .block-nav:hover,
+            body.dark-theme .social-link:hover {
+                background-color: #273549;
+            }
+            body.dark-theme .pages h1,
+            body.dark-theme .navigation h1 {
+                color: #0f172a;
+            }
+            body.dark-theme .footer-bottom {
+                border-top-color: #334155;
+            }
+            a.theme-active {
+                color: #ffb348 !important;
+                text-decoration: underline !important;
+            }
+        `;
+        document.head.appendChild(darkStyles);
+
+        const lightBtn = document.getElementById('light');
+        const darkBtn = document.getElementById('dark');
+
+        lightBtn.classList.add('theme-active');
+
+        lightBtn.addEventListener('click', function () {
+            document.body.classList.remove('dark-theme');
+            lightBtn.classList.add('theme-active');
+            darkBtn.classList.remove('theme-active');
+        });
+
+        darkBtn.addEventListener('click', function () {
+            document.body.classList.add('dark-theme');
+            darkBtn.classList.add('theme-active');
+            lightBtn.classList.remove('theme-active');
+        });
+
+
+                const dict = [
+    ["Сторінки", "Pages"], ["Статья", "Article"], ["Навігація", "Navigation"],
+    ["Про проєкт", "About the Project"], ["Лінія довіри:", "Helpline:"],
+    ["Контакти", "Contacts"], ["Пн–Пт: 09:00 – 18:00", "Mon–Fri: 09:00 – 18:00"],
+    ["Соціальні мережі", "Social Media"], ["Інформація", "Information"],
+    ["Політика конфіденційності", "Privacy Policy"], ["Умови використання", "Terms of Use"],
+    ["Зворотний зв'язок", "Feedback"],
+    ["© 2026 Gaslight? No Thanks. Усі права захищено.", "© 2026 Gaslight? No Thanks. All rights reserved."],
+    ["Освітній портал про психологічну безпеку, розпізнавання газлайтингу та захист особистих кордонів.", "An educational portal on psychological safety, recognizing gaslighting, and protecting personal boundaries."],
+    ["Текстовий плейсхолдер для першого блоку статті. Тут буде розміщено вступний матеріал, ключові визначення та опис основної проблеми.", "Text placeholder for the first block of the article. Introductory material, key definitions, and a description of the core issue will be placed here."],
+    ["Додатковий абзац плейсхолдера для розкриття контексту та плавного переходу до наступних розділів публікації.", "Additional placeholder paragraph to expand the context and provide a smooth transition to the next sections of the publication."],
+    ["Текстовий плейсхолдер для другого блоку статті. Тут описуються типові ознаки, приклади з життя та розбір поширених ситуацій.", "Text placeholder for the second block of the article. Typical warning signs, real-life examples, and an analysis of common situations are described here."],
+    ["Додатковий абзац плейсхолдера з деталізацією ключових тез і поясненням механізмів впливу.", "Additional placeholder paragraph detailing the key points and explaining the mechanisms of manipulation."],
+    ["Текстовий плейсхолдер для третього блоку статті. Тут подаються практичні поради, алгоритми дій та інструменти самозахисту.", "Text placeholder for the third block of the article. Practical advice, action plans, and self-defense tools are provided here."],
+    ["Додатковий абзац плейсхолдера з рекомендаціями щодо збереження емоційної рівноваги та особистих кордонів.", "Additional placeholder paragraph with recommendations for maintaining emotional balance and personal boundaries."],
+    ["Текстовий плейсхолдер для четвертого блоку статті. Підсумкові висновки за темою та узагальнення головних ідей матеріалу.", "Text placeholder for the fourth block of the article. Final conclusions on the topic and a summary of the main ideas."],
+    ["Додатковий абзац плейсхолдера із завершальними тезами та корисними контактами підтримки.", "Additional placeholder paragraph with closing thoughts and helpful support contacts."]
+];
+
+const rules = [
+    [/^Сторінка (\d+)$/, "Page $1", /^Page (\d+)$/, "Сторінка $1"],
+    [/^Блок (\d+)$/, "Block $1", /^Block (\d+)$/, "Блок $1"],
+    [/^Заголовок розділу (\d+)$/, "Section $1 Heading", /^Section (\d+) Heading$/, "Заголовок розділу $1"]
+];
+
+const setLang = (lang) => {
+    const isEn = lang === 'en';
+    const map = Object.fromEntries(dict.map(([u, e]) => isEn ? [u, e] : [e, u]));
+    const walker = document.createTreeWalker(document.body, 4);
+
+    for (let n; (n = walker.nextNode()); ) {
+        const t = n.nodeValue.trim();
+        if (map[t]) n.nodeValue = n.nodeValue.replace(t, map[t]);
+        else rules.forEach(([rU, sE, rE, sU]) => {
+            const [rx, sub] = isEn ? [rU, sE] : [rE, sU];
+            if (rx.test(t)) n.nodeValue = n.nodeValue.replace(t, t.replace(rx, sub));
+        });
+    }
+
+    document.documentElement.lang = lang;
+    ['UA', 'EN'].forEach(id => {
+        const el = document.getElementById(id);
+        el.style.color = (id === 'EN') === isEn ? '#ffb348' : '';
+        el.onclick = () => setLang(id.toLowerCase());
+    });
+    localStorage.setItem('site_lang', lang);
+};
+
+setLang(localStorage.getItem('site_lang') || 'uk');
+   
     </script>
 </body>
 </html>
